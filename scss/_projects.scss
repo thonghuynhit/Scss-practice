@@ -1,0 +1,91 @@
+.projects {
+    padding-bottom: 2rem;
+    &__bio-image {
+        height: 30vh;
+        width: 100%;
+        background-size: cover;
+        background: linear-gradient(to right, rgba($primary-color, 0.9), rgba($primary-color, 0.3)), url("../img/2.jpg") center top;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-items: flex-end;
+        align-items: center;
+        
+
+        .text-secondary {
+            margin-top: 10%;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+    &__items {
+        width: 60vw;
+        margin: 2rem auto 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 2rem;
+
+    }
+            &__item {
+                position: relative;
+                border-bottom: 5px solid $secondary-color;
+                overflow: hidden;
+                cursor: pointer;
+        
+                img {
+                    width: 100%;
+        
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    background: $secondary-color;
+                    opacity: 0;
+                    @include transition-ease;
+                }
+                &:hover::after {
+                    top: 0;
+                    opacity: 0.9;
+                    
+                }
+                &:hover {
+                    .projects__btn {
+                        opacity: 1;
+                    }
+                }
+            }
+            &__btns {
+                position: absolute;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                z-index: 1;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                text-align: center;
+
+            }
+            &__btn {
+                opacity: 0;
+                column-rule: set-text-color($primary-color);
+                @include transition-ease;
+
+                &:hover {
+                    color: set-text-color(set-text-color($primary-color));
+                }
+            }
+
+    
+}
+        .social-icons {
+            display: flex;
+            flex-direction: column;
+        }
+        footer {
+            transform: rotate(90deg) translate(-3rem, -5rem);
+        }
